@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100; }
+  h1, h2 { @apply font-serif tracking-wide; }
+  ::selection { @apply bg-brand-500/40; }
+}
+
+@layer components {
+  .card { @apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900 dark:shadow-none dark:ring-slate-800; }
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3 text-base outline-none placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/25 dark:border-slate-700 dark:bg-slate-900;
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    line-height: 46px;
+  }
+  input[type="date"].input {
+    box-sizing: border-box;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 46px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input[type="date"].input::-webkit-date-and-time-value {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    height: 46px;
+    min-height: 46px;
+    line-height: 46px;
+    display: flex;
+    align-items: center;
+  }
+
+  .label { @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400; }
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-4 text-base font-semibold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40; }
+  .btn-primary { @apply btn bg-brand-500 text-slate-950 hover:bg-brand-400; }
+  .btn-ghost { @apply btn bg-slate-100 text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700; }
+  .btn-danger { @apply btn bg-red-50 text-red-700 hover:bg-red-100 dark:bg-red-950/60 dark:text-red-300 dark:hover:bg-red-950; }
+  .btn-sm { @apply min-h-[38px] rounded-lg px-3 text-sm; }
+  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium; }
+  .gold-text { @apply text-brand-700 dark:text-brand-400; }
+  .hairline { @apply border-b border-slate-200 dark:border-slate-800; }
+
+}

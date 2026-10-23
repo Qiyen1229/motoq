@@ -1,0 +1,14 @@
+services:
+  motoq:
+    build: .
+    container_name: motoq
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MOTOQ_DATA_DIR: /data
+    ports:
+      - "${MOTOQ_PORT:-9155}:8080"
+
+    volumes:
+      - ./data:/data
+    # 容器內以 uid 1000 執行；若 ./data 在 NAS 上權限受限，可執行 chmod -R 777 ./data 或 chown -R 1000:1000 ./data
